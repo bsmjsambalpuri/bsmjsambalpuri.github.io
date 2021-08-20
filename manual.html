@@ -1,0 +1,127 @@
+<!--Text to image HTML-->
+<html>
+<head>
+<!--by BSM-->
+<meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
+<style>
+select,input {padding: 7px 0;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background: transparent;
+		margin-left:5px;
+		margin-right:5px;}
+			
+.form1 {display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top:10px;
+		text-align: center;}
+.button {background-color: #C050DD; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 6px 16px;
+		  text-align: center;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		  border-radius: 6px;}
+input[type="color"] {
+	width: 32px;
+	height: 40px;
+	border: none;
+}
+</style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<body>
+<canvas width="512" height="512" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Your Browser is not compatible with this game. We recommend Google Chrome, Mozilla Firefox, or Opera.></canvas>
+<div class="form1">
+  <select id="Style" name="Style">
+  <option value="http://bsmjsambalpuri.github.io/style1.jpg">Style 0</option>
+  <option value="http://bsmjsambalpuri.github.io/style2.jpg">Style 1</option>
+  <option value="http://bsmjsambalpuri.github.io/style3.jpg">Style 2</option>
+  <option value="http://bsmjsambalpuri.github.io/style4.jpg">Style 3</option>
+  <option value="http://bsmjsambalpuri.github.io/style5.jpg">Style 4</option>
+  <option value="http://bsmjsambalpuri.github.io/style6.jpg">Style 5</option>
+  <option value="http://bsmjsambalpuri.github.io/style7.jpg">Style 6</option>
+  <option value="http://bsmjsambalpuri.github.io/style8.jpg">Style 7</option>
+  </select> 
+  <input type="text" id="myText" value="NameHere" />
+  <br/><br/>Font:
+  <select id="Font1" name="Font1">
+    <option value="serif">Serif</option>
+	<option value="Cursive" >Cursive</option>
+    <option value="sans-serif">Sans-serif</option>
+    <option value="monospace">Monospace</option>
+    <option value="casual">Casual</option>
+	<option value="sans-serif-smallcaps">sans-serif-smallcaps</option>
+	<option value="Fantasy">Fantasy</option>
+  </select>
+   </br>
+  Text Color:
+  
+  <input type="color" id="Textcolor" name="favcolor" value="#ffffff">
+  
+  &nbsp;&nbsp;Shadow:
+  
+  <input type="color" id="Shadowcolor" name="favcolor" value="#000000">
+
+  <br/>
+  <button onclick="myFunction()"class="button">Generate</button>
+  <a id="download" download="myImage.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
+ <br/></div>
+
+  
+  <script>
+  function myFunction(){
+    let game_canvas = document.getElementById("game");
+    let game_context = game_canvas.getContext("2d");
+	
+	var text = document.getElementById("myText").value;
+	var Textcolor = document.getElementById("Textcolor").value;
+	var Shadowcolor = document.getElementById("Shadowcolor").value;
+	var Font = document.getElementById("Font1").value;
+	var Style = document.getElementById("Style").value;
+
+	
+    let swedishflagbg = new Image();
+	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
+    swedishflagbg.src = Style;
+    swedishflagbg.onload = function() {     
+    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
+	game_context.fillStyle = Textcolor;
+	var fontsize= fitTextOnCanvas(text,Font);
+    game_context.font = fontsize+"px "+Font;
+    game_context.textAlign = "center";
+    game_context.textBaseline = "middle";
+	game_context.shadowColor=Shadowcolor;
+	game_context.shadowBlur=7;
+	game_context.fillText(text, 256, 256);	
+	
+	
+	function fitTextOnCanvas(text,fontface){    
+    // start with a large font size
+    var fontsize=180;
+	// lower the font size until the text fits the canvas
+    do{
+        fontsize--;
+        game_context.font=fontsize+"px "+fontface;
+    }while(game_context.measureText(text).width>324);
+	return fontsize;}
+
+}
+
+
+download_img = function(el) {
+  var image = new Image();
+  image.setAttribute('crossOrigin', 'anonymous');
+   image=game.toDataURL("image/jpg");
+  el.href = image;
+};
+}
+  </script>
+  <script>myFunction();</script>  
+</body>
+</html>
