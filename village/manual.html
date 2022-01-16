@@ -1,8 +1,11 @@
-<!--Text to image HTML-->
+<!--Village-->
 <html>
 <head>
-<!--by BSM-->
+<!--Text to image HTML by BSMJ Sambalpuri-->
 <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
+
+<link href="https://fonts.googleapis.com/css2?family=Playball&family=Milonga&family=Jacques+Francois+Shadow&family=Oleo+Script+Swash+Caps&family=Cookie&family=Marko+One" rel="stylesheet" />
+
 <style>
 select,input {padding: 7px 0;
 		border-radius: 3px;
@@ -10,7 +13,6 @@ select,input {padding: 7px 0;
 		background: transparent;
 		margin-left:5px;
 		margin-right:5px;}
-			
 .form1 {display: block;
 		margin-left: auto;
 		margin-right: auto;
@@ -25,6 +27,7 @@ select,input {padding: 7px 0;
 		  font-size: 16px;
 		  margin: 4px 2px;
 		  cursor: pointer;
+		  width:50%;
 		  border-radius: 6px;}
 input[type="color"] {
 	width: 32px;
@@ -36,37 +39,50 @@ input[type="color"] {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <body>
-<canvas width="512" height="512" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Your Browser is not compatible with this game. We recommend Google Chrome, Mozilla Firefox, or Opera.></canvas>
 <div class="form1">
-  <select id="Style" name="Style">
-  <option value="https://bsmjsambalpuri.github.io/village/village1.jpg">Village 01</option>
+<div style='font-family: "Milonga";display:inline;'>Sam</div>
+<div style='font-family: "Playball";display:inline;'>bal</div>
+<div style='font-family: "Jacques Francois Shadow";display:inline;'>pu</div>
+<div style='font-family: "Oleo Script Swash Caps";display:inline;'>ri - </div>
+<div style='font-family: "Cookie";display:inline;'>D</div>
+<div style='font-family: "Marko One";display:inline;'>P</div>
+<canvas width="512" height="512" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Error. Try Chrome Broswer></canvas>
+<br/>
+  <select id="Style" name="Style" onchange="myFunction()">
+<option value="https://bsmjsambalpuri.github.io/village/village1.jpg">Mor Gaan</option>
+<option value="https://bsmjsambalpuri.github.io/village/signboard.jpg">Sign Board</option>
+<option value="https://bsmjsambalpuri.github.io/village/milestone.jpg">Milestone</option>
   </select> 
-  <input type="text" id="myText" value="NameHere" />
+  <input type="text" id="myText" value="Malgudi" onchange="myFunction()"/>
   <br/><br/>Font:
-  <select id="Font1" name="Font1">
+  <select id="Font1" name="Font1" onchange="myFunction()">
     <option value="serif">Serif</option>
-	<option value="Cursive" >Cursive</option>
-    <option value="sans-serif">Sans-serif</option>
-    <option value="monospace">Monospace</option>
-    <option value="casual">Casual</option>
-	<option value="sans-serif-smallcaps">sans-serif-smallcaps</option>
-	<option value="Fantasy">Fantasy</option>
+	<option value="Milonga" >Milonga</option>
+    <option value="Playball">Playball</option>
+    <option value="Jacques Francois Shadow">Jacques Francois Shadow</option>
+    <option value="Oleo Script Swash Caps">Oleo Script Swash Caps</option>
+	<option value="Cookie">Cookie</option>
+	<option value="Marko One">Marko+One</option>
+	<option value="Cursive">Cursive</option>
+  </select>
+   Stroke:
+  <select id="Stroke" name="Stroke" onchange="myFunction()">
+    <option value="Off">Off</option>
+	<option value="On" >On</option>
   </select>
    </br>
   Text Color:
   
-  <input type="color" id="Textcolor" name="favcolor" value="#fdff18">
+  <input type="color" id="Textcolor" name="favcolor" value="#e1ff00" onchange="myFunction()">
   
   &nbsp;&nbsp;Shadow:
   
-  <input type="color" id="Shadowcolor" name="favcolor" value="#000000">
-
+  <input type="color" id="Shadowcolor" name="favcolor" value="#000000" onchange="myFunction()">
+  &nbsp;&nbsp;StrokeColor:
+  <input type="color" id="StrokeColor" name="favcolor" value="#000000" onchange="myFunction()">
   <br/>
-  <button onclick="myFunction()"class="button">Generate</button>
   <a id="download" download="myImage.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
- <br/>
- <a id="back"  href="https://bsmjsambalpuri.github.io/manual.html"><button class="button" style="padding: 6px 56px;">Go back</button></a>
- </div>
+ <br/></div>
 
   
   <script>
@@ -79,7 +95,8 @@ input[type="color"] {
 	var Shadowcolor = document.getElementById("Shadowcolor").value;
 	var Font = document.getElementById("Font1").value;
 	var Style = document.getElementById("Style").value;
-
+	var Stroke = document.getElementById("Stroke").value;
+	var StrokeColor = document.getElementById("StrokeColor").value;
 	
     let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
@@ -92,8 +109,15 @@ input[type="color"] {
     game_context.textAlign = "center";
     game_context.textBaseline = "middle";
 	game_context.shadowColor=Shadowcolor;
+	game_context.strokeStyle = StrokeColor;
 	game_context.shadowBlur=7;
-	game_context.fillText(text, 256, 256);	
+	game_context.fillText(text, 256, 256);
+	
+	if (Stroke==='On') {
+	game_context.strokeText(text,256,256);
+	
+}
+	
 	
 	
 	function fitTextOnCanvas(text,fontface){    
