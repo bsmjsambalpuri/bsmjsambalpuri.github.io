@@ -49,7 +49,7 @@ input[type="color"] {
 <canvas width="512" height="512" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Error. Try Chrome Broswer></canvas>
 <br/>
   <select id="Style" name="Style" onchange="myFunction()">
-<option value="https://bsmjsambalpuri.github.io/india/ind.jpg">Nuakhai 01</option>
+<option value="https://bsmjsambalpuri.github.io/india/ind.jpg">India 01</option>
   </select> 
   <input type="text" id="myText" value="Jitu" onchange="myFunction()"/>
   <br/><br/>Font:
@@ -75,7 +75,7 @@ input[type="color"] {
   
   &nbsp;Shadow:
   
-  <input type="color" id="Shadowcolor" name="favcolor" value="#000000" onchange="myFunction()">
+  <input type="color" id="Shadowcolor" name="favcolor" value="#747272" onchange="myFunction()">
   &nbsp;Stroke:
   <input type="color" id="StrokeColor" name="favcolor" value="#ffffff" onchange="myFunction()">
   <br/>
@@ -101,9 +101,9 @@ input[type="color"] {
     swedishflagbg.src = Style;
     swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
-	var grd = game_context.createLinearGradient(277,210,288,288);
-	grd.addColorStop(0,"orange");
-	grd.addColorStop(1,"green");
+	var grd = game_context.createLinearGradient(128,250,360,288);
+	grd.addColorStop(0,"rgb(220, 99, 54)");
+    grd.addColorStop(1,"rgb(154, 193, 42)");
 	if (Textcolor==='#000000'){
 	game_context.fillStyle = grd;}
 	else
@@ -119,7 +119,7 @@ input[type="color"] {
 	game_context.fillText(text, 256, 256);
 	
 	if (Stroke==='On') {
-	game_context.lineWidth=1.5;
+	game_context.lineWidth=1.7;
 	game_context.strokeText(text,256,256);
 	
 }
