@@ -72,8 +72,8 @@ input[type="color"] {
   
     let game_canvas = document.getElementById("game");
     let game_context = game_canvas.getContext("2d");
-	
-	game_context.drawImage(this, 120, 120, 790, 790);
+	//draw image (image,dx,dy,1024-2*dx,1024-2*dy)
+	game_context.drawImage(this, 132, 132, 760, 760);
 	var Style = document.getElementById("Style").value;
 	
 	let swedishflagbg = new Image();
