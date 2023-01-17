@@ -1,11 +1,11 @@
-<!--Sambalpuri_din Photo Edit-->
+<!--Birthday Photo Edit-->
 <html>
 <head>
 <!--Image Frame by BSMJ Sambalpuri-->
 <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
 
 <style>
-select,input {padding: 7px 0;
+input {padding: 7px 0;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
@@ -16,7 +16,7 @@ select,input {padding: 7px 0;
 		margin-right: auto;
 		margin-top:10px;
 		text-align: center;}
-.button {background-color: #C050DD; /* Green */
+.button {background-color: #C050DD; 
 		  border: none;
 		  color: white;
 		  padding: 6px 16px;
@@ -27,11 +27,6 @@ select,input {padding: 7px 0;
 		  cursor: pointer;
 		  width:50%;
 		  border-radius: 6px;}
-input[type="color"] {
-	width: 32px;
-	height: 40px;
-	border: none;
-}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
@@ -42,19 +37,10 @@ input[type="color"] {
 <br/>
 
 <input type="file" id="inp"/>
-
 <br/>
-  <select id="Style" name="Style" onchange="myFunction()">
-<option value="https://bsmjsambalpuri.github.io/sambalpuri_din/style1.jpg">Frame 1</option>
-  <!--<option value="https://bsmjsambalpuri.github.io/sambalpuri_2/style2.jpg">Style 2</option>
-  <option value="https://bsmjsambalpuri.github.io/sambalpuri_2/style3.jpg">Style 3</option>
-  <option value="https://bsmjsambalpuri.github.io/sambalpuri_2/style4.jpg">Style 4</option>-->
-  </select> 
-  
-  <br/>
-  
   <a id="download" download="bsmjsambalpuri.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
- <br/></div>
+ <br/>
+ </div>
   
   
   <script>
@@ -69,14 +55,15 @@ input[type="color"] {
   
   function myFunction(){
   
+  
     let game_canvas = document.getElementById("game");
     let game_context = game_canvas.getContext("2d");
 	
-	game_context.drawImage(this, 0, 0, game_canvas.width, game_canvas.height);
+	game_context.drawImage(this, 120, 120, 790, 790);
 	
 	let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
-    swedishflagbg.src = "https://lh3.googleusercontent.com/-NomW5cRIAmM/YPrAt0KQtNI/AAAAAAAAAAM/u88_mpIdMR05jLMI-FctU7s7B5jzsJc5QCNcBGAsYHQ/Sambalpuri%2BDin%2BFrame%2Bpng.png"
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/birthday/birthday1.png";
 	swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
 	}
@@ -90,9 +77,12 @@ function myFunction1(){
     let game_canvas = document.getElementById("game");
     let game_context = game_canvas.getContext("2d");
 	
+	document.getElementById('inp').value = "";
+	game_context.clearRect(0, 0, game_canvas.width, game_canvas.height);
+	
 	let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
-    swedishflagbg.src = "https://bsmjsambalpuri.github.io/sambalpuri_din/sbp1.png"
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/birthday/birthday1.png";
 	swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
 	}

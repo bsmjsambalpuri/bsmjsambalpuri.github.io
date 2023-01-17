@@ -1,11 +1,10 @@
-<!--Birthday Photo Edit-->
+<!--Sambalpuri_din Photo Edit-->
 <html>
 <head>
 <!--Image Frame by BSMJ Sambalpuri-->
 <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
-
 <style>
-select,input {padding: 7px 0;
+input {padding: 7px 0;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
@@ -27,11 +26,6 @@ select,input {padding: 7px 0;
 		  cursor: pointer;
 		  width:50%;
 		  border-radius: 6px;}
-input[type="color"] {
-	width: 32px;
-	height: 40px;
-	border: none;
-}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
@@ -42,20 +36,11 @@ input[type="color"] {
 <br/>
 
 <input type="file" id="inp"/>
-
-<br/>
-  <b>Select Frame :</b><select id="Style" name="Style" onchange="myFunction1()">
-<option value="https://bsmjsambalpuri.github.io/edit/birthday/BirthdayFrame.png">Frame 1</option>
-
-  </select> 
-  
   <br/>
   
   <a id="download" download="bsmjsambalpuri.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
  <br/>
  </div>
-  
-  
   <script>
   
   document.getElementById('inp').onchange = function(e) {
@@ -72,12 +57,12 @@ input[type="color"] {
     let game_canvas = document.getElementById("game");
     let game_context = game_canvas.getContext("2d");
 	
-	game_context.drawImage(this, 120, 120, 790, 790);
-	var Style = document.getElementById("Style").value;
+	//x,x,f-2x,f-2x
+	game_context.drawImage(this, 99, 99, 826, 826);
 	
 	let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
-    swedishflagbg.src = Style;
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/sambalpuri/sbp_frame2.png";
 	swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
 	}
@@ -94,17 +79,13 @@ function myFunction1(){
 	document.getElementById('inp').value = "";
 	game_context.clearRect(0, 0, game_canvas.width, game_canvas.height);
 	
-	var Style = document.getElementById("Style").value;
-	
 	let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
-    swedishflagbg.src = Style;
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/sambalpuri/sbp_frame2.png";
 	swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
 	}
-
 	//game_context.drawImage(this, 0, 0, 256, 256);
-
 };
 
 function failed() {

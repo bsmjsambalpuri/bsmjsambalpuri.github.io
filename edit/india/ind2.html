@@ -49,10 +49,9 @@ input[type="color"] {
 <canvas width="512" height="512" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Error. Try Chrome Broswer></canvas>
 <br/>
   <select id="Style" name="Style" onchange="myFunction()">
-<option value="https://bsmjsambalpuri.github.io/india/ind.jpg">India 01</option>
-<option value="https://bsmjsambalpuri.github.io/india/ind2.jpg">India 02</option>
+<option value="https://bsmjsambalpuri.github.io/india/ind2.jpg">India</option>
   </select> 
-  <input type="text" id="myText" value="Jitu" onchange="myFunction()"/>
+  <input type="text" id="myText" value="BIPUL" onchange="myFunction()"/>
   <br/><br/>Font:
   <select id="Font1" name="Font1" onchange="myFunction()">
     <option value="serif">Serif</option>
@@ -81,7 +80,7 @@ input[type="color"] {
   &nbsp;Stroke:
   <input type="color" id="StrokeColor" name="favcolor" value="#ffffff" onchange="myFunction()">
   <br/>
-  <a id="download" download="myImage.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
+  <a id="download" download="bsmjsambalpuri.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
  <br/></div>
 
   
@@ -103,7 +102,7 @@ input[type="color"] {
     swedishflagbg.src = Style;
     swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
-	var grd = game_context.createLinearGradient(256,240,256,270);
+	var grd = game_context.createLinearGradient(256,256,256,286); //x0,y0,x1,y1
 	grd.addColorStop(0,"rgb(220, 99, 54)");
 	grd.addColorStop(0.5,"rgb(255, 255, 255)");
     grd.addColorStop(1,"rgb(154, 193, 42)");
@@ -118,17 +117,13 @@ input[type="color"] {
 	game_context.shadowColor=Shadowcolor;
 	game_context.strokeStyle = StrokeColor;
 	
-	game_context.shadowBlur=7;
-	game_context.fillText(text, 256, 256);
-	
 	if (Stroke==='On') {
 	game_context.lineWidth=1.7;
-	game_context.strokeText(text,256,256);
+	game_context.strokeText(text,256,280);}
 	
-}
-	
-	
-	
+	game_context.shadowBlur=7;
+	game_context.fillText(text, 256, 280);
+
 	function fitTextOnCanvas(text,fontface){    
     // start with a large font size
     var fontsize=180;
