@@ -5,7 +5,7 @@
 <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
 
 <style>
-select,input {padding: 7px 0;
+input {padding: 7px 0;
 		border-radius: 3px;
 		border: 1px solid #ccc;
 		background: transparent;
@@ -27,29 +27,18 @@ select,input {padding: 7px 0;
 		  cursor: pointer;
 		  width:50%;
 		  border-radius: 6px;}
-input[type="color"] {
-	width: 32px;
-	height: 40px;
-	border: none;
-}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
 <div class="form1">
-<canvas width="1024" height="1024" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Error. Try Chrome Broswer></canvas>
+<canvas width="1024" height="1080" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Error. Try Chrome Broswer></canvas>
 <br/>
 
 <input type="file" id="inp"/>
 
 <br/>
-  <b>Select Frame :</b><select id="Style" name="Style" onchange="myFunction1()">
-<option value="https://bsmjsambalpuri.github.io/edit/birthday/BirthdayFrame.png">Frame 1</option>
-
-  </select> 
-  
-  <br/>
   
   <a id="download" download="bsmjsambalpuri.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
  <br/>
@@ -72,14 +61,13 @@ input[type="color"] {
     let game_canvas = document.getElementById("game");
     let game_context = game_canvas.getContext("2d");
 	
-	game_context.drawImage(this, 120, 120, 790, 790);
-	var Style = document.getElementById("Style").value;
+	game_context.drawImage(this, 122, 134, 630, 642);
 	
 	let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
-    swedishflagbg.src = Style;
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/birthday/birthday3.png";
 	swedishflagbg.onload = function() {     
-    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
+    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
 	}
 
 	//game_context.drawImage(this, 0, 0, 256, 256);
@@ -93,14 +81,12 @@ function myFunction1(){
 	
 	document.getElementById('inp').value = "";
 	game_context.clearRect(0, 0, game_canvas.width, game_canvas.height);
-	
-	var Style = document.getElementById("Style").value;
-	
+		
 	let swedishflagbg = new Image();
 	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
-    swedishflagbg.src = Style;
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/birthday/birthday3.png";
 	swedishflagbg.onload = function() {     
-    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
+    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
 	}
 
 	//game_context.drawImage(this, 0, 0, 256, 256);
