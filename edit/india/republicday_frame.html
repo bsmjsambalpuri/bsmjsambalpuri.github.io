@@ -1,0 +1,106 @@
+<!--Republic day Photo Edit-->
+<html>
+<head>
+<!--Image Frame by BSMJ Sambalpuri-->
+<meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
+
+<style>
+input {padding: 7px 0;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background: transparent;
+		margin-left:5px;
+		margin-right:5px;}
+.form1 {display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top:10px;
+		text-align: center;}
+.button {background-color: #C050DD; 
+		  border: none;
+		  color: white;
+		  padding: 6px 16px;
+		  text-align: center;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		  width:50%;
+		  border-radius: 6px;}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div class="form1">
+<canvas width="1024" height="1024" id="game" style="display: block; margin-left: auto;  margin-right: auto; border: 1px solid black;width:80%;max-width: 500px;" Error. Try Chrome Broswer></canvas>
+<br/>
+Please select a square image.<br/><br/>
+<input type="file" id="inp"/>
+<br/>
+  <a id="download" download="bsmjsambalpuri.jpg" href="" onclick="download_img(this);"><button class="button">Download</button></a>
+ <br/>
+ </div>
+  
+  
+  <script>
+  
+  document.getElementById('inp').onchange = function(e) {
+  var userImg = new Image();
+  userImg.onload = myFunction;
+  userImg.onerror = failed;
+  userImg.src = URL.createObjectURL(this.files[0]);
+};
+  
+  
+  function myFunction(){
+  
+  
+    let game_canvas = document.getElementById("game");
+    let game_context = game_canvas.getContext("2d");
+	
+	game_context.drawImage(this, 100, 100, 840, 840);
+	
+	let swedishflagbg = new Image();
+	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/india/republicday_frame.png";
+	swedishflagbg.onload = function() {     
+    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
+	}
+
+	//game_context.drawImage(this, 0, 0, 256, 256);
+
+};
+
+function myFunction1(){
+  
+    let game_canvas = document.getElementById("game");
+    let game_context = game_canvas.getContext("2d");
+	
+	document.getElementById('inp').value = "";
+	game_context.clearRect(0, 0, game_canvas.width, game_canvas.height);
+	
+	let swedishflagbg = new Image();
+	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/india/republicday_frame.png";
+	swedishflagbg.onload = function() {     
+    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.width);
+	}
+
+	//game_context.drawImage(this, 0, 0, 256, 256);
+
+};
+
+function failed() {
+  console.error("The provided file couldn't be loaded as an Image media");}
+
+download_img = function(el) {
+  var image = new Image();
+  image.setAttribute('crossOrigin', 'anonymous');
+   image=game.toDataURL("image/jpg");
+  el.href = image;
+};
+  </script>
+  <script>myFunction1();</script>
+</body>
+</html>
