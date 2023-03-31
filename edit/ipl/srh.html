@@ -1,0 +1,92 @@
+<html>
+<head>
+<!--BSMJ Sambalpuri-->
+<meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
+<link href="https://fonts.googleapis.com/css2?family=Playball" rel="stylesheet"/>
+
+<style>
+select,input {padding: 7px 0;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background: transparent;
+		margin-left:5px;
+		margin-right:5px;}
+.form1 {display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top:10px;
+		text-align: center;}
+.button {background-color: #C050DD; /* Green */
+		  border: none;
+		  color: white;
+		  padding: 6px 16px;
+		  text-align: center;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		  width:50%;
+		  border-radius: 6px;}
+input[type="color"] {
+	width: 32px;
+	height: 40px;
+	border: none;
+}
+</style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<body>
+<div class="form1">
+<div style="display: inline; font-family: &quot;Playball&quot;;">BSMJSambalpuri.in</div>
+<canvas broswer="" chrome="" error.="" height="512" id="game" style="border: 1px solid black; display: block; margin-left: auto; margin-right: auto; max-width: 500px; width: 80%;" try="" width="512"></canvas>
+<br />
+  Add Name Here: <input id="myText" onchange="myFunction()" type="text" value="Kunal" />
+  <br />
+  <a download="bsmjsambalpuri.jpg" href="" id="download" onclick="download_img(this);"><button class="button">Download</button></a>
+</div>
+
+  <script>
+  function myFunction(){
+    let game_canvas = document.getElementById("game");
+    let game_context = game_canvas.getContext("2d");
+	var text = document.getElementById("myText").value;
+	var Font="Playball";
+    let swedishflagbg = new Image();
+	swedishflagbg.setAttribute('crossOrigin', 'anonymous');
+    swedishflagbg.src = "https://bsmjsambalpuri.github.io/edit/ipl/srh.jpg";
+    swedishflagbg.onload = function() {     
+    game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
+	game_context.fillStyle = "#ffffff";
+	
+	var fontsize= fitTextOnCanvas(text,Font);
+    game_context.font = fontsize+"px "+Font;
+    game_context.textAlign = "center";
+    game_context.textBaseline = "middle";
+	game_context.strokeStyle = "#2c2628";
+	game_context.strokeText(text,250,260);
+	game_context.fillText(text,250,260);
+	game_context.shadowColor="#000000";
+	game_context.shadowBlur=7;
+}
+	
+	function fitTextOnCanvas(text,fontface){    
+    var fontsize=180;
+    do{
+        fontsize--;
+        game_context.font=fontsize+"px "+fontface;
+    }while(game_context.measureText(text).width>320);
+	return fontsize;}
+
+}
+
+download_img = function(el) {
+  var image = new Image();
+  image.setAttribute('crossOrigin', 'anonymous');
+   image=game.toDataURL("image/jpg");
+  el.href = image;
+};
+  </script>
+  
+  <script>myFunction();</script>
+</body>
+</html>
