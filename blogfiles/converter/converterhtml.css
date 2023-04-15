@@ -24,18 +24,3 @@ textarea{
   text-align: left;
   box-shadow:0px 1px 2px grey;
 }
-body{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  
-  background-color: white;
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  box-shadow:0px 1px 2px grey;
-}
