@@ -40,7 +40,7 @@ var conv_code = new Array(
 "ଵ","wa",
 "ଭ", "bha",
 "ମ", "ma",
-"ଯ", "ya",
+"ଯ", "ja",
 "ର", "ra",
 "ଲ", "la",
 "ଳ", "la",
