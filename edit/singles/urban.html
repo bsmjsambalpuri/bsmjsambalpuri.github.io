@@ -43,8 +43,11 @@ input[type="color"] {
 <canvas broswer="" chrome="" error.="" height="512" id="game" style="border: 1px solid black; display: block; margin-left: auto; margin-right: auto; max-width: 500px; width: 80%;" try="" width="512"></canvas>
 <br />
  <select id="Style" name="Style" onchange="myFunction()">
-  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban.jpg">Jungle1</option>
-  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban2.jpg">Jungle2</option>
+  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban2.jpg">Jungle1</option>
+  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban.jpg">Jungle2</option>
+  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban3.jpg">Jungle3</option>
+  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban4.jpg">Jungle4</option>
+  <option value="https://bsmjsambalpuri.github.io/edit/singles/urban5.jpg">Jungle5</option>
   </select> 
   Add Name Here: <input id="myText" onchange="myFunction()" type="text" value="Mahesh" />
   <br />
@@ -63,21 +66,13 @@ input[type="color"] {
     swedishflagbg.src = Style;
     swedishflagbg.onload = function() {     
     game_context.drawImage(swedishflagbg, 0, 0, game_canvas.width, game_canvas.height);
-	var grd = game_context.createLinearGradient(300,210,300,256); //x0,y0,x1,y1
-	grd.addColorStop(0,"rgb(6, 39, 140)");
-    grd.addColorStop(1,"rgb(38, 139, 21)");
-	game_context.fillStyle = grd;
+	game_context.fillStyle = "#ffffff";
 	
 	var fontsize= fitTextOnCanvas(text,Font);
     game_context.font = fontsize+"px "+Font;
     game_context.textAlign = "center";
     game_context.textBaseline = "middle";
-	game_context.strokeStyle = "#d5fcff";
-	game_context.shadowColor="#1FD0DD";
-	game_context.shadowBlur=12;
-	game_context.lineWidth=1.7;
-	game_context.strokeText(text,256,256);
-	
+	game_context.fillText(text, 256, 280);	
 }
 	
 	
@@ -87,7 +82,7 @@ input[type="color"] {
     do{
         fontsize--;
         game_context.font=fontsize+"px "+fontface;
-    }while(game_context.measureText(text).width>320);
+    }while(game_context.measureText(text).width>400);
 	return fontsize;}
 
 }
