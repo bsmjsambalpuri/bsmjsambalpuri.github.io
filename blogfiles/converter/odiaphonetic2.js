@@ -1,7 +1,6 @@
 function convert_it()
 {
 var conv_code = new Array(
-"଼","",
 "କ୍ଷ", "ksha",
 "ଅ", "a",
 "ଆ", "aa",
