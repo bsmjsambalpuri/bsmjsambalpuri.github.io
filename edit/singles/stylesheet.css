@@ -3,5 +3,3 @@
     src:url('UrbanJungleDEMO.woff2') format('woff2'),
           url('UrbanJungleDEMO.woff') format('woff');
 }
-@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39&display=swap');
-p,div,body,h1,h2,h3,h4,a,b,i{font-family: 'Libre Barcode 39', cursive;}
