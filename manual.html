@@ -120,7 +120,6 @@ div{overflow-x:auto; overflow-y: hidden;}
 
 </div>
 <script>
-
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -133,8 +132,28 @@ function openCity(evt, cityName) {
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
+
+  // Save selected tab in localStorage
+  localStorage.setItem("selectedTab", cityName);
 }
-document.getElementsByClassName('tablinks')[0].click();
+
+// On page load, restore selected tab if available
+window.onload = function() {
+  var savedTab = localStorage.getItem("selectedTab");
+  if (savedTab) {
+    // Find button for saved tab and trigger click
+    var tablinks = document.getElementsByClassName("tablinks");
+    for (var i = 0; i < tablinks.length; i++) {
+      if (tablinks[i].getAttribute("onclick").includes(savedTab)) {
+        tablinks[i].click();
+        return;
+      }
+    }
+  }
+  // Default to first tab if no saved tab
+  document.getElementsByClassName('tablinks')[0].click();
+}
 </script>
+
 </body>
 </html> 
